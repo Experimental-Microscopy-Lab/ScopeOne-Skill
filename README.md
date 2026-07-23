@@ -24,11 +24,21 @@ plugin supplies both the MCP configuration and the ScopeOne operating Skill.
 
 ## Codex
 
-Copy or link [`skills/scopeone`](skills/scopeone) to
-`$CODEX_HOME/skills/scopeone`, or to `~/.codex/skills/scopeone` when
-`CODEX_HOME` is unset. Start a new Codex task and ask it to use the ScopeOne
-Skill. The Skill explains how to locate and register `ScopeOneMcpServer` before
-controlling the application.
+Ask Codex to install the Skill directly from GitHub:
+
+```text
+Install the ScopeOne Skill from
+https://github.com/Experimental-Microscopy-Lab/ScopeOne-Skill/tree/main/skills/scopeone
+```
+
+Codex installs it through its built-in Skill Installer. The Skill becomes
+available on the next turn. Then ask Codex to use the ScopeOne Skill to connect
+to the running application. The Skill explains how to locate and register
+`ScopeOneMcpServer` before controlling ScopeOne.
+
+For an offline installation, copy or link [`skills/scopeone`](skills/scopeone)
+to `$CODEX_HOME/skills/scopeone`, or to `~/.codex/skills/scopeone` when
+`CODEX_HOME` is unset.
 
 ## Contents
 
