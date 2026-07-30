@@ -38,26 +38,36 @@ Codex and Claude variants:
    plugin starts that executable automatically. Do not also run `claude mcp add`.
    If the configured path is missing or wrong, ask the user to update the plugin
    setting and reload plugins.
-4. In Codex, explain that registration changes the user's configuration and
-   obtain explicit approval before making that change. Check the existing entry:
+4. In Codex, first check the existing entry:
 
    ```text
    codex mcp get scopeone
    ```
 
-5. If the Codex entry is absent, replace `ABSOLUTE_SERVER_PATH` with the
-   resolved executable path and run:
+5. If the entry is absent, resolve the executable to an absolute path and give
+   the user this exact command with that path substituted:
 
    ```text
    codex mcp add scopeone -- "ABSOLUTE_SERVER_PATH"
    ```
 
-6. If an existing Codex entry points to the wrong executable, explain the
-   mismatch and obtain explicit approval before running `codex mcp remove
-   scopeone`, then add the corrected entry.
-7. Ask the user to restart the agent or start a new session after registration.
-   Do not claim the MCP tools are available in the current session until they
-   actually appear.
+6. Do not try to modify Codex MCP configuration from the running Codex session
+   when its configuration is locked. Tell the user to close Codex, run the
+   prepared command in a terminal, and reopen Codex. If an existing entry uses
+   the wrong path, also provide `codex mcp remove scopeone` before the corrected
+   add command.
+7. Stop runtime-control work at this boundary. Continue only in the restarted
+   session where the ScopeOne MCP tools are actually present. Never claim that
+   writing the configuration dynamically adds tools to the current session.
+
+Tell the user the complete setup sequence in one response:
+
+1. Install ScopeOne and locate `ScopeOneMcpServer`.
+2. Install this Skill.
+3. Close Codex.
+4. Run the prepared `codex mcp add` command in a normal terminal.
+5. Start ScopeOne.
+6. Reopen Codex and ask it to use the ScopeOne Skill.
 
 ## Establish state
 

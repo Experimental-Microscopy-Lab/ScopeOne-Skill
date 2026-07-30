@@ -1,7 +1,7 @@
 {
   "name": "scopeone",
   "description": "Control ScopeOne through its bundled MCP server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "ScopeOne Project"
   },

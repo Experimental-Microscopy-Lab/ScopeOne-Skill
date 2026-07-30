@@ -31,10 +31,19 @@ Install the ScopeOne Skill from
 https://github.com/Experimental-Microscopy-Lab/ScopeOne-Skill/tree/main/skills/scopeone
 ```
 
-Codex installs it through its built-in Skill Installer. The Skill becomes
-available on the next turn. Then ask Codex to use the ScopeOne Skill to connect
-to the running application. The Skill explains how to locate and register
-`ScopeOneMcpServer` before controlling ScopeOne.
+Codex installs it through its built-in Skill Installer. The Skill explains how
+to locate `ScopeOneMcpServer` and prepares the exact MCP registration command.
+Because MCP tools are loaded when Codex starts, finish setup outside the active
+session:
+
+1. Close Codex.
+2. Run the prepared `codex mcp add scopeone -- "ABSOLUTE_SERVER_PATH"` command
+   in a normal terminal.
+3. Start ScopeOne and reopen Codex.
+4. Ask Codex to use the ScopeOne Skill to inspect or control ScopeOne.
+
+MCP registration is a one-time setup. Do not launch `ScopeOneMcpServer`
+manually; Codex starts it when the registered tools are needed.
 
 For an offline installation, copy or link [`skills/scopeone`](skills/scopeone)
 to `$CODEX_HOME/skills/scopeone`, or to `~/.codex/skills/scopeone` when
